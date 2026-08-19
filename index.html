@@ -104,23 +104,23 @@
                 <input type="text" id="input-cerca-forum" placeholder="🔍 Cercar recomanació o tema...">
             </div>
 
-            <div class="card-blanca-forum">
-                <input type="text" id="post-titol" placeholder="Sobre quin llibre/peli vols parlar?">
-                <textarea id="post-text" placeholder="Escriu la teva opinió o recomanació..." rows="3"></textarea>
-                
-                <div class="fila-puntuacio">
-                    <span>Puntuació:</span>
-                    <select id="post-puntuacio">
-                        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-                        <option value="4">⭐⭐⭐⭐ (4/5)</option>
-                        <option value="3">⭐⭐⭐ (3/5)</option>
-                        <option value="2">⭐⭐ (2/5)</option>
-                        <option value="1">⭐ (1/5)</option>
-                    </select>
-                </div>
+            <form id="formulari-post" class="card-blanca-forum">
+    <input type="text" id="post-titol" placeholder="Sobre quin llibre/peli vols parlar?" required>
+    <textarea id="post-text" placeholder="Escriu la teva opinió o recomanació..." rows="3" required></textarea>
+    
+    <div class="fila-puntuacio">
+        <span>Puntuació:</span>
+        <select id="post-puntuacio">
+            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+            <option value="3">⭐⭐⭐ (3/5)</option>
+            <option value="2">⭐⭐ (2/5)</option>
+            <option value="1">⭐ (1/5)</option>
+        </select>
+    </div>
 
-                <button type="button" class="boto-publicar-gran">Publicar al fòrum</button>
-            </div>
+    <button type="submit" class="boto-publicar-gran">Publicar al fòrum</button>
+</form>
 
             <div id="llista-forum">
                 <!-- Publicacions -->
