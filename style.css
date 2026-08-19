@@ -1,0 +1,633 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #fff0e1;
+    color: #5a4038;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 80px; /* Aquest espai evita que el menú de sota me'ls tapi */
+}
+
+header h1 {
+    text-align: center;
+    color: #5a4038;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Pestanyes */
+.pestanyes-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.pestanya {
+    flex: 1;
+    padding: 8px 4px;
+    border: none;
+    background-color: #f2e3df;
+    color: #5a4038;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.pestanya.activa {
+    background-color: #e8a598;
+    color: #ffffff;
+}
+
+/* Botó d'afegir */
+.boto-afegir {
+    background-color: #e8a598;
+    color: #ffffff;
+    width: 100%;
+    margin: 10px 0 15px 0;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+
+/* Formulari */
+.formulari-contenidor {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.formulari-contenidor h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.formulari-contenidor input, 
+.formulari-contenidor select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #f0d5ce;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #5a4038;
+    background-color: #fdf8f5;
+    box-sizing: border-box;
+}
+
+.boto-guardar {
+    background-color: #e8a598;
+    color: #ffffff;
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+
+/* Targetes */
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.portada-placeholder {
+    width: 70px;
+    height: 100px;
+    background-color: #f7d6d0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.card-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.card-info p {
+    margin: 3px 0;
+    font-size: 13px;
+    color: #8c736c;
+}
+
+.card-info .estat {
+    font-weight: 700;
+    color: #e8a598;
+}
+
+
+/* Menú fix a la part inferior */
+.menu-inferior {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.boto-nav {
+    border: none;
+    background: none;
+    color: #8c736c;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.boto-nav.actiu {
+    color: #e8a598;
+    font-weight: 700;
+}
+
+/* Accions dins de la targeta (canviar estat i esborrar) */
+.card-info {
+    width: 100%;
+}
+
+.card-accions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.select-estat-card {
+    padding: 4px 8px;
+    border: 1px solid #f0d5ce;
+    border-radius: 8px;
+    background-color: #fdf8f5;
+    color: #5a4038;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.boto-esborrar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.boto-esborrar:hover {
+    opacity: 1;
+}
+
+/* Cercador */
+.cercador-contenidor {
+    margin-bottom: 12px;
+}
+
+#input-cerca {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #f0d5ce;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #5a4038;
+    box-sizing: border-box;
+}
+
+#input-cerca:focus {
+    outline: none;
+    border-color: #e8a598;
+}
+
+.sense-resultats {
+    text-align: center;
+    color: #8c736c;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* Control de seccions */
+.seccio {
+    display: none;
+}
+
+.seccio.activa {
+    display: block;
+}
+
+/* Estils del Fòrum */
+.forum-publicacio {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.usuari-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.avatar {
+    font-size: 18px;
+}
+
+/* Estils del Perfil (Compte) */
+.perfil-contenidor {
+    text-align: center;
+}
+
+.avatar-gran {
+    font-size: 50px;
+    background-color: #f7d6d0;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+}
+
+.perfil-capcalera h2 {
+    margin: 0;
+    color: #5a4038;
+}
+
+.perfil-capcalera p {
+    color: #8c736c;
+    font-size: 14px;
+}
+
+.perfil-estadistiques {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.estat-box {
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.estat-box strong {
+    display: block;
+    font-size: 22px;
+    color: #e8a598;
+}
+
+.estat-box span {
+    font-size: 13px;
+    color: #8c736c;
+}
+
+/* Formulari i Caixes del Fòrum */
+.formulari-contenidor-forum {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.formulari-contenidor-forum input,
+.formulari-contenidor-forum textarea,
+.formulari-contenidor-forum select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #f0d5ce;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #fdf8f5;
+}
+
+.formulari-contenidor-forum textarea {
+    resize: vertical;
+    height: 70px;
+}
+
+.puntuacio-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Publicació al Fòrum */
+.post-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.post-capcalera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.post-titol-llibre {
+    font-weight: 700;
+    color: #5a4038;
+    margin: 4px 0;
+}
+
+.post-estrelles {
+    color: #f4b400;
+    font-size: 14px;
+}
+
+/* Secció de comentaris */
+.comentaris-contenidor {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #f0d5ce;
+}
+
+.comentari-item {
+    background-color: #fdf8f5;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.form-comentari {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.form-comentari input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #f0d5ce;
+    border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+}
+
+.form-comentari button {
+    background-color: #e8a598;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Cercador del Fòrum */
+#input-cerca-forum {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #f0d5ce;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #5a4038;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+#input-cerca-forum:focus {
+    outline: none;
+    border-color: #e8a598;
+}
+
+/* Estils millorats del Perfil */
+.perfil-estadistiques {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boto-secundari {
+    background-color: #f2e3df;
+    color: #5a4038;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.formulari-contenidor-perfil {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.formulari-contenidor-perfil input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #f0d5ce;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    box-sizing: border-box;
+    background-color: #fdf8f5;
+}
+
+/* Cercador d'Usuaris / Amics */
+.cercador-usuaris {
+    margin-bottom: 15px;
+}
+
+#input-cerca-usuaris {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #f0d5ce;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #5a4038;
+    box-sizing: border-box;
+}
+
+#input-cerca-usuaris:focus {
+    outline: none;
+    border-color: #e8a598;
+}
+
+/* Llista de resultats d'usuaris */
+.llista-resultats {
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.card-usuari {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid #fdf8f5;
+    transition: background-color 0.2s;
+}
+
+.card-usuari:last-child {
+    border-bottom: none;
+}
+
+.card-usuari:hover {
+    background-color: #fdf8f5;
+}
+
+/* Botó per afegir amic */
+.boto-afegir-amic {
+    background-color: #e8a598;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+}
+
+.boto-afegir-amic:hover {
+    background-color: #d99386;
+}
+
+/* Botons per acceptar i rebutjar */
+.boto-acceptar {
+    background-color: #a8d5ba;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.boto-rebutjar {
+    background-color: #f2a6a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.boto-acceptar:hover { background-color: #93c4a6; }
+.boto-rebutjar:hover { background-color: #e08f8f; }
+
+/* Contenidor amb alçada màxima i barra de desplaçament pròpia */
+#llista-biblioteca {
+    max-height: 480px; /* Limita l'alçada visual de la llista */
+    overflow-y: auto;  /* Activa el scroll vertical quan hi ha molts elements */
+    padding-right: 6px;
+}
+
+/* Estilització suau de la barra de scroll */
+#llista-biblioteca::-webkit-scrollbar {
+    width: 6px;
+}
+
+#llista-biblioteca::-webkit-scrollbar-track {
+    background: #fdf8f5;
+    border-radius: 10px;
+}
+
+#llista-biblioteca::-webkit-scrollbar-thumb {
+    background: #f0d5ce;
+    border-radius: 10px;
+}
+
+#llista-biblioteca::-webkit-scrollbar-thumb:hover {
+    background: #e8a598;
+}
+
+/* Estil per al botó de seleccionar imatge/portada */
+.boto-pujar-imatge {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f2e3df;
+    color: #5a4038;
+    border: 2px dashed #f0d5ce;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.boto-pujar-imatge:hover {
+    background-color: #f0d5ce;
+    border-color: #e8a598;
+}
+
+/* Ocultem l'input real de tipus file */
+input[type="file"].input-ocult {
+    display: none;
+}

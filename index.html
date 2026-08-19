@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La meva Biblioteca Cozy</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Google Nunito per a un estil suau i rodonet -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Llibreria OCR per escanejar fotos d'estanteries -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Capçalera principal -->
+        <header class="header-principal">
+            <h1>🌸 Biblioteca Cozy</h1>
+            <p>El teu espai personal de lectura i cinema</p>
+        </header>
+
+        <!-- Navegació principal -->
+        <nav class="nav-principal">
+            <button class="boto-nav actiu" data-seccio="seccio-biblioteca">📚 Biblioteca</button>
+            <button class="boto-nav" data-seccio="seccio-forum">💬 Fòrum</button>
+            <button class="boto-nav" data-seccio="seccio-perfil">👤 Perfil & Amics</button>
+        </nav>
+
+        <!-- SECCIÓ 1: BIBLIOTECA -->
+        <section id="seccio-biblioteca" class="seccio activa">
+            
+            <!-- Accions d'IA i Escàner -->
+            <div class="ia-accions" style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                <button id="boto-recomanar-ia" class="boto-guardar" style="background-color: #e8a598;">
+                    ✨ Recomana'm contingut
+                </button>
+                
+                <label for="input-foto-estanteria" class="boto-pujar-imatge" style="margin: 0; width: auto; flex: 1; min-width: 180px; text-align: center;">
+                    📸 Escanejar estanteria (Foto)
+                </label>
+                <input type="file" id="input-foto-estanteria" class="input-ocult" accept="image/*">
+            </div>
+
+            <!-- Caixa per mostrar la recomanació d'IA -->
+            <div id="caixa-recomanacio" style="display: none; background-color: #fffaf7; border: 1px solid #f0d5ce; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                <h3 style="margin-top: 0; color: #5a4038;">✨ Suggeriment per a tu:</h3>
+                <p id="text-recomanacio" style="color: #5a4038;"></p>
+                <button id="boto-afegir-recomanat" class="boto-guardar" style="font-size: 12px; padding: 6px 12px;">+ Afegir a la biblioteca</button>
+            </div>
+
+            <!-- Barra de cerca i botó d'afegir -->
+            <div class="accions-bar">
+                <input type="text" id="input-cerca" placeholder="Buscar per títol o autor/a...">
+                <button class="boto-afegir">+ Afegir nou</button>
+            </div>
+
+            <!-- Formulari per afegir element nou -->
+            <div id="formulari-afegir" class="desplegable-formulari" style="display: none;">
+                <h3>Afegir nou element</h3>
+                <form id="formulari-nou">
+                    <input type="text" id="input-titol" placeholder="Títol del llibre o pel·lícula" required>
+                    <input type="text" id="input-autor" placeholder="Autor/a o Director/a" required>
+                    
+                    <select id="select-tipus">
+                        <option value="llibres">📖 Llibre</option>
+                        <option value="pelis">🎬 Pel·lícula</option>
+                        <option value="series">📺 Sèrie</option>
+                    </select>
+
+                    <select id="select-estat">
+                        <option value="progres">En progrés / Mirant</option>
+                        <option value="pendents">Pendent</option>
+                        <option value="acabats">Acabat</option>
+                    </select>
+
+                    <!-- Seleccionar imatge de portada -->
+                    <label for="input-portada-llibre" class="boto-pujar-imatge">
+                        🖼️ Seleccionar imatge de portada
+                    </label>
+                    <input type="file" id="input-portada-llibre" class="input-ocult" accept="image/*">
+
+                    <button type="submit" class="boto-guardar">Guardar a la biblioteca</button>
+                </form>
+            </div>
+
+            <!-- Filtres per pestanyes -->
+            <div class="pestanyes-filtre">
+                <button class="pestanya activa" data-filtre="tots">Tots</button>
+                <button class="pestanya" data-filtre="llibres">📖 Llibres</button>
+                <button class="pestanya" data-filtre="pelis">🎬 Pel·lícules</button>
+                <button class="pestanya" data-filtre="series">📺 Sèries</button>
+            </div>
+
+            <!-- Llista de contingut -->
+            <div id="llista-contingut" class="llista-cards">
+                <!-- Es carregarà dinàmicament des de JavaScript -->
+            </div>
+        </section>
+
+        <!-- SECCIÓ 2: FÒRUM -->
+        <section id="seccio-forum" class="seccio">
+            <div class="cercador-usuaris">
+                <input type="text" id="input-cerca-forum" placeholder="Cercar opinions o ressenyes...">
+            </div>
+
+            <div class="card-formulari-forum">
+                <h3>Escriu una nova ressenya</h3>
+                <form id="formulari-post">
+                    <input type="text" id="post-titol" placeholder="Títol del llibre o pel·lícula" required>
+                    <textarea id="post-text" placeholder="Què t'ha semblat? Quines emocions t'ha transmès?" rows="3" required></textarea>
+                    
+                    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
+                        <label for="post-puntuacio" style="font-size: 13px; color: #8c736c;">Puntuació:</label>
+                        <select id="post-puntuacio">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="1">⭐ (1/5)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="boto-guardar">Publicar al fòrum</button>
+                </form>
+            </div>
+
+            <div id="llista-forum" class="llista-posts">
+                <!-- Es carregarà dinàmicament -->
+            </div>
+        </section>
+
+        <!-- SECCIÓ 3: PERFIL & AMICS -->
+        <section id="seccio-perfil" class="seccio">
+            <div class="perfil-targeta">
+                <div class="perfil-header">
+                    <span id="avatar-display" class="avatar-gran">📚</span>
+                    <div>
+                        <h2 id="nom-usuari-display">Usuari/a Cozy</h2>
+                        <p id="bio-usuari-display">Amant de la lectura i el cinema</p>
+                    </div>
+                </div>
+                <button id="boto-editar-perfil" class="boto-secundari">EditarPerfil</button>
+            </div>
+
+            <!-- Desplegable per editar perfil -->
+            <div id="formulari-perfil" class="desplegable-formulari" style="display: none; margin-top: 15px;">
+                <h3>Editar el teu perfil</h3>
+                <input type="text" id="input-nom-perfil" placeholder="El teu nom d'usuari/a">
+                <input type="text" id="input-bio-perfil" placeholder="Descripció breu">
+                
+                <label style="font-size: 12px; color: #8c736c;">Escull un avatar:</label>
+                <select id="select-avatar-perfil">
+                    <option value="📚">📚 Llibres</option>
+                    <option value="🌸">🌸 Flor</option>
+                    <option value="☕">☕ Cafè</option>
+                    <option value="🎬">🎬 Cinema</option>
+                    <option value="🐱">🐱 Gatet</option>
+                </select>
+
+                <button id="boto-guardar-perfil" class="boto-guardar" style="margin-top: 10px;">Guardar canvis</button>
+            </div>
+
+            <!-- Estadístiques -->
+            <div class="estadistiques-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px;">
+                <div class="estat-card">
+                    <span id="total-guardats">0</span>
+                    <label>Total Guardats</label>
+                </div>
+                <div class="estat-card">
+                    <span id="total-llibres">0</span>
+                    <label>Llibres</label>
+                </div>
+                <div class="estat-card">
+                    <span id="total-pelis">0</span>
+                    <label>Pel·lícules</label>
+                </div>
+                <div class="estat-card">
+                    <span id="total-series">0</span>
+                    <label>Sèries</label>
+                </div>
+            </div>
+
+            <!-- Cercador d'Amics -->
+            <div class="gestio-amics" style="margin-top: 25px; border-top: 1px solid #f0d5ce; padding-top: 15px;">
+                <h3>👥 Cercar i afegir amics</h3>
+                <div class="cercador-usuaris">
+                    <input type="text" id="input-cerca-usuaris" placeholder="Buscar amics pel seu nom d'usuari...">
+                    <div id="resultats-usuaris" class="llista-resultats"></div>
+                </div>
+
+                <!-- Peticions Pendents -->
+                <h4 style="margin-top: 15px; color: #5a4038;">Peticions rebudes</h4>
+                <div id="llista-peticions" class="llista-resultats"></div>
+
+                <!-- Els meus amics -->
+                <h4 style="margin-top: 15px; color: #5a4038;">Els meus amics</h4>
+                <div id="llista-amics" class="llista-resultats"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Enllaç al fitxer JavaScript final -->
+    <script src="script.js"></script>
+</body>
+</html>
