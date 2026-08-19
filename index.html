@@ -102,34 +102,33 @@
 <section id="seccio-forum" class="seccio">
     <h2 class="titol-seccio-gran">Fòrum Comunitari</h2>
 
-    <div class="cercador-usuaris">
-        <input type="text" id="input-cerca-forum" placeholder="🔍 Cercar recomanació o tema...">
+    <!-- Cercador dalt de tot -->
+    <div class="caixa-cercador">
+        <input type="text" id="input-cerca-forum" placeholder="🔍  Cercar recomanació o tema...">
     </div>
 
-    <!-- Targeta blanca per escriure la ressenya -->
-    <div class="card-formulari-forum">
-        <form id="formulari-post">
-            <input type="text" id="post-titol" placeholder="Sobre quin llibre/peli vols parlar?" required>
-            <textarea id="post-text" placeholder="Escriu la teva opinió o recomanació..." rows="3" required></textarea>
-            
-            <div class="fila-puntuacio">
-                <label for="post-puntuacio">Puntuació:</label>
-                <select id="post-puntuacio">
-                    <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-                    <option value="4">⭐⭐⭐⭐ (4/5)</option>
-                    <option value="3">⭐⭐⭐ (3/5)</option>
-                    <option value="2">⭐⭐ (2/5)</option>
-                    <option value="1">⭐ (1/5)</option>
-                </select>
-            </div>
+    <!-- TARGETA BLANCA DE FORMULARI -->
+    <div class="card-blanca-forum">
+        <input type="text" id="post-titol" placeholder="Sobre quin llibre/peli vols parlar?">
+        <textarea id="post-text" placeholder="Escriu la teva opinió o recomanació..." rows="3"></textarea>
+        
+        <div class="fila-puntuacio">
+            <span>Puntuació:</span>
+            <select id="post-puntuacio">
+                <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                <option value="3">⭐⭐⭐ (3/5)</option>
+                <option value="2">⭐⭐ (2/5)</option>
+                <option value="1">⭐ (1/5)</option>
+            </select>
+        </div>
 
-            <button type="submit" class="boto-publicar-forum">Publicar al fòrum</button>
-        </form>
+        <button type="button" class="boto-publicar-gran">Publicar al fòrum</button>
     </div>
 
-    <!-- Llista de publicacions -->
-    <div id="llista-forum" class="llista-posts">
-        <!-- Es carregarà dinàmicament -->
+    <!-- Llista de publicacions que apareixen a baix -->
+    <div id="llista-forum">
+        <!-- Ressenyes com la de Laura_Reads -->
     </div>
 </section>
 
