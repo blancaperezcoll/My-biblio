@@ -717,3 +717,108 @@ input[type="file"].input-ocult {
     font-weight: 700;
     cursor: pointer;
 }
+
+/* Estils per a etiquetes del perfil */
+.etiqueta-input {
+    font-size: 13px;
+    font-weight: 700;
+    color: #8c736c;
+    margin-bottom: -4px;
+    margin-top: 4px;
+}
+
+/* Modal Fons Fosc */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(90, 64, 56, 0.4); /* Fons suau fosc */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal.obert {
+    display: flex;
+}
+
+/* Targeta Blanca del Modal */
+.card-blanca-modal {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.titol-modal {
+    font-size: 20px;
+    color: #4a342e;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.card-blanca-modal input[type="text"],
+.card-blanca-modal input[type="email"],
+.card-blanca-modal input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #fffbf9;
+    border: 1px solid #f2e3df;
+    border-radius: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #5a4038;
+    box-sizing: border-box;
+}
+
+/* Botó de carregar imatge */
+.boto-pujar-imatge {
+    padding: 12px;
+    background-color: #fffbf9;
+    border: 2px dashed #f2e3df;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #8c736c;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.boto-pujar-imatge:hover {
+    border-color: #e8a598;
+    color: #e8a598;
+}
+
+.input-ocult {
+    display: none;
+}
+
+/* Accions del Modal */
+.accions-modal {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.boto-secundari-gran {
+    width: 50%;
+    background-color: #f2e3df;
+    color: #5a4038;
+    border: none;
+    padding: 14px;
+    border-radius: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
