@@ -50,7 +50,7 @@ function guardarDades() {
 
 // --- RENDERING DE LA BIBLIOTECA ---
 function mostrarBiblioteca() {
-    let llista = document.getElementById('llista-contingut');
+    let llista = document.getElementById('llista-biblioteca');
     if (!llista) return;
     
     llista.innerHTML = '';
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Formulari nou element biblioteca amb Imatge en Base64
     let formulari = document.getElementById('formulari-nou');
     let formulariContenidor = document.getElementById('formulari-afegir');
-    let botoAfegir = document.querySelector('.boto-afegir');
+    let botoAfegir = document.getElementById('boto-obrir-formulari');
 
     if (botoAfegir && formulariContenidor) {
         botoAfegir.addEventListener('click', () => {
