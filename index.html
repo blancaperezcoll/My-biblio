@@ -98,37 +98,40 @@
             </div>
         </section>
 
-        <!-- SECCIÓ 2: FÒRUM -->
-        <section id="seccio-forum" class="seccio">
-            <div class="cercador-usuaris">
-                <input type="text" id="input-cerca-forum" placeholder="Cercar opinions o ressenyes...">
+        <!-- SECCIÓ FÒRUM -->
+<section id="seccio-forum" class="seccio">
+    <h2 class="titol-seccio-gran">Fòrum Comunitari</h2>
+
+    <div class="cercador-usuaris">
+        <input type="text" id="input-cerca-forum" placeholder="🔍 Cercar recomanació o tema...">
+    </div>
+
+    <!-- Targeta blanca per escriure la ressenya -->
+    <div class="card-formulari-forum">
+        <form id="formulari-post">
+            <input type="text" id="post-titol" placeholder="Sobre quin llibre/peli vols parlar?" required>
+            <textarea id="post-text" placeholder="Escriu la teva opinió o recomanació..." rows="3" required></textarea>
+            
+            <div class="fila-puntuacio">
+                <label for="post-puntuacio">Puntuació:</label>
+                <select id="post-puntuacio">
+                    <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                    <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                    <option value="3">⭐⭐⭐ (3/5)</option>
+                    <option value="2">⭐⭐ (2/5)</option>
+                    <option value="1">⭐ (1/5)</option>
+                </select>
             </div>
 
-            <div class="card-formulari-forum">
-                <h3>Escriu una nova ressenya</h3>
-                <form id="formulari-post">
-                    <input type="text" id="post-titol" placeholder="Títol del llibre o pel·lícula" required>
-                    <textarea id="post-text" placeholder="Què t'ha semblat? Quines emocions t'ha transmès?" rows="3" required></textarea>
-                    
-                    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
-                        <label for="post-puntuacio" style="font-size: 13px; color: #8c736c;">Puntuació:</label>
-                        <select id="post-puntuacio">
-                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
-                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
-                            <option value="3">⭐⭐⭐ (3/5)</option>
-                            <option value="2">⭐⭐ (2/5)</option>
-                            <option value="1">⭐ (1/5)</option>
-                        </select>
-                    </div>
+            <button type="submit" class="boto-publicar-forum">Publicar al fòrum</button>
+        </form>
+    </div>
 
-                    <button type="submit" class="boto-guardar">Publicar al fòrum</button>
-                </form>
-            </div>
-
-            <div id="llista-forum" class="llista-posts">
-                <!-- Es carregarà dinàmicament -->
-            </div>
-        </section>
+    <!-- Llista de publicacions -->
+    <div id="llista-forum" class="llista-posts">
+        <!-- Es carregarà dinàmicament -->
+    </div>
+</section>
 
         <!-- SECCIÓ 3: PERFIL & AMICS -->
         <section id="seccio-perfil" class="seccio">
