@@ -320,6 +320,79 @@ header h1 {
     color: #8c736c;
 }
 
+/* Títol Gran */
+.titol-seccio-gran {
+    text-align: center;
+    font-size: 26px;
+    color: #5a4038;
+    margin-bottom: 20px;
+}
+
+/* Card blanca del formulari */
+.card-formulari-forum {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.card-formulari-forum input[type="text"],
+.card-formulari-forum textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #f2e3df;
+    border-radius: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #5a4038;
+    background-color: #fffaf7;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+.card-formulari-forum textarea {
+    resize: vertical;
+}
+
+/* Fila de la puntuació */
+.fila-puntuacio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #5a4038;
+}
+
+.fila-puntuacio select {
+    padding: 8px 12px;
+    border: 1px solid #f2e3df;
+    border-radius: 12px;
+    background-color: #fffaf7;
+    font-family: 'Nunito', sans-serif;
+    color: #5a4038;
+}
+
+/* Botó rosa gran de publicar */
+.boto-publicar-forum {
+    width: 100%;
+    padding: 12px;
+    background-color: #e8a598;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.boto-publicar-forum:hover {
+    background-color: #df9486;
+}
+
 /* Formulari i Caixes del Fòrum */
 .formulari-contenidor-forum {
     background-color: #ffffff;
