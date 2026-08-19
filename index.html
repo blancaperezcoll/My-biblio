@@ -61,6 +61,24 @@
                 <form id="formulari-nou">
                     <input type="text" id="input-titol" placeholder="Títol del llibre o pel·lícula" required>
                     <input type="text" id="input-autor" placeholder="Autor/a o Director/a" required>
+                    <div class="fila-puntuacio">
+            <span>Estat:</span>
+            <select id="select-estat">
+                <option value="pendent">📖 Llegint / Mirant</option>
+                <option value="completat">✅ Completat</option>
+                <option value="desitjos">🌟 Llista de desitjos</option>
+            </select>
+        </div>
+
+        <label class="boto-pujar-imatge">
+            📷 Carregar portada
+            <input type="file" id="input-portada" accept="image/*" class="input-ocult">
+        </label>
+
+        <div class="accions-modal">
+            <button type="button" id="btn-cancelar" class="boto-secundari-gran">Cancel·lar</button>
+            <button type="button" id="btn-guardar-llibre" class="boto-publicar-gran">Afegir a la biblioteca</button>
+        </div>
                     
                     <select id="select-tipus">
                         <option value="llibres">📖 Llibre</option>
@@ -159,7 +177,18 @@
                     <option value="🎬">🎬 Cinema</option>
                     <option value="🐱">🐱 Gatet</option>
                 </select>
+<h2 class="titol-seccio-gran">Editar Compte</h2>
 
+    <!-- TARGETA BLANCA EDITAR COMPTE -->
+    <div class="card-blanca-forum">
+        <label class="etiqueta-input">Nom d'usuari</label>
+        <input type="text" id="edit-nom-usuari" placeholder="El teu nom d'usuari">
+
+        <label class="etiqueta-input">Correu electrònic</label>
+        <input type="email" id="edit-correu" placeholder="el-teu-correu@cozy.com">
+
+        <label class="etiqueta-input">Canviar contrasenya</label>
+        <input type="password" id="edit-password" placeholder="Nova contrasenya">
                 <button id="boto-guardar-perfil" class="boto-guardar" style="margin-top: 10px;">Guardar canvis</button>
             </div>
 
